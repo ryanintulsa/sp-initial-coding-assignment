@@ -33,7 +33,8 @@ as a duplicate.
 To change this behavior, a data store would be needed. Simply making the cache static might appear to work at
 first, but any time the server restarts for whatever reason, the cache will be reset, and duplicates from before
 the reset will not be caught. This results in the behavior changing based on the time of the last server reset,
-which cannot be desirable. A proper data store, such as a relational or document database, is the solution for
+which cannot be desirable. Also if deployed behind a load balancer, you could reach a different instance (different
+cache) on subsequent calls. A proper data store, such as a relational or document database, is the solution for
 cross-upload duplicate checks.
 
 ## Known Issues
